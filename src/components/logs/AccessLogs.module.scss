@@ -1,0 +1,165 @@
+@import '../../assets/variables';
+
+.logs {
+  max-width: 80%;
+  margin: 0 auto;
+  padding: 20px;
+}
+
+.header {
+  text-align: center;
+
+  margin-bottom: 30px;
+
+  h1 {
+    margin: 0;
+    color: rgba($black, 0.8);
+    font-size: 24px;
+  }
+}
+
+.backButton {
+  background: none;
+  border: none;
+  color: $purple-blue;
+  font-size: 16px;
+  cursor: pointer;
+  padding: 8px 0;
+
+  &:hover {
+    color: $purple;
+  }
+}
+
+.refreshButton {
+  background: $purple-blue;
+  color: white;
+  border: none;
+  padding: 8px 16px;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 14px;
+
+  &:hover {
+    background: $purple;
+  }
+}
+
+.stats {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 15px;
+  margin-bottom: 30px;
+}
+
+.stat {
+  background: white;
+  padding: 20px;
+  border-radius: 12px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  text-align: center;
+}
+
+.statNumber {
+  display: block;
+  font-size: 32px;
+  font-weight: bold;
+  color: #2c3e50;
+  margin-bottom: 8px;
+}
+
+.statLabel {
+  font-size: 14px;
+  color: #7f8c8d;
+}
+
+.logsList {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.logItem {
+  background: white;
+  border-radius: 12px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  padding: 20px;
+  border-left: 4px solid $purple-blue;
+}
+
+.logHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 12px;
+}
+
+.logType {
+  font-weight: bold;
+  font-size: 14px;
+}
+
+.logTime {
+  color: #7f8c8d;
+  font-size: 14px;
+}
+
+.logDetails {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.employeeInfo {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+
+  strong {
+    color: #2c3e50;
+    font-size: 16px;
+  }
+}
+
+.employeePosition {
+  background: #f8f9fa;
+  padding: 4px 8px;
+  border-radius: 12px;
+  font-size: 12px;
+  color: #7f8c8d;
+}
+
+.actionInfo {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.action {
+  font-weight: 500;
+  color: #333;
+}
+
+.reason {
+  color: #e74c3c;
+  
+  font-size: 14px;
+  margin-top: 2px;
+}
+
+.emptyState {
+  text-align: center;
+  padding: 40px 20px;
+  color: #7f8c8d;
+  font-style: italic;
+  background: white;
+  border-radius: 12px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+.loading {
+  text-align: center;
+  padding: 40px;
+  font-size: 18px;
+  color: #7f8c8d;
+}

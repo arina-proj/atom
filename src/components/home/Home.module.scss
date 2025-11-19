@@ -1,0 +1,276 @@
+@import '../../assets/variables';
+
+.home {
+  
+  margin: 0 auto;
+  background: white;
+  border-radius: 16px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+  
+}
+
+.statsSection {
+  padding: 24px;
+  background: $gradient;
+  color: white;
+}
+
+.mainTitle {
+  font-size: 24px;
+  font-weight: 700;
+  margin: 0 0 8px 0;
+  text-align: center;
+}
+
+.subtitle {
+  font-size: 16px;
+  margin: 0 0 24px 0;
+  text-align: center;
+  opacity: 0.9;
+}
+
+.statsGrid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 16px;
+  margin-bottom: 24px;
+}
+
+.statCard {
+  background: rgba(255, 255, 255, 0.2);
+  border-radius: 12px;
+  padding: 16px;
+  text-align: center;
+  backdrop-filter: blur(10px);
+}
+
+.statNumber {
+  font-size: 28px;
+  font-weight: 700;
+  margin-bottom: 4px;
+}
+
+.statLabel {
+  font-size: 12px;
+  opacity: 0.9;
+}
+
+.attendanceSection {
+  text-align: center;
+}
+
+.sectionTitle {
+  font-size: 18px;
+  margin: 0 0 16px 0;
+  font-weight: 600;
+}
+
+.attendanceButtons {
+  display: flex;
+  gap: 16px; 
+  justify-content: center;
+}
+
+.attendanceButton {
+  background: rgba(255, 255, 255, 0.9);
+  color: $purple-blue;
+  border: none;
+  padding: 16px 24px;
+  border-radius: 12px;
+  font-size: 16px;
+  font-weight: 600;
+  cursor: pointer;
+  flex: 1;
+  transition: all 0.3s ease;
+
+  &:hover {
+    background: white;
+    transform: translateY(-2px);
+  }
+}
+.divider {
+  height: 1px;
+  background: #e0e0e0;
+  margin: 0;
+}
+
+.listSection {
+  padding: 24px;
+}
+
+.tabs {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 8px;
+  margin-bottom: 20px;
+  background: #f8f9fa;
+  border-radius: 8px;
+  padding: 4px;
+}
+
+.tab {
+  background: none;
+  border: none;
+  padding: 12px;
+  border-radius: 6px;
+  font-size: 14px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.3s ease;
+
+  &.active {
+    background: white;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  }
+}
+
+.employeesList {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.employeeCard {
+  background: #f8f9fa;
+  border-radius: 12px;
+  padding: 16px;
+  border-left: 4px solid $purple-blue;
+}
+
+.leaveButton {
+  background: rgba($turquoise, 0.8);
+  color: white;
+  border: none;
+  padding: 16px 24px;
+  border-radius: 12px;
+  font-size: 16px;
+  font-weight: 600;
+  cursor: pointer;
+  flex: 1;
+  transition: all 0.3s ease;
+  
+
+  &:hover {
+    background: $turquoise;
+    transform: translateY(-2px);
+  }
+}
+
+.employeeMain {
+  margin-bottom: 12px;
+}
+
+.employeeName {
+  font-weight: 600;
+  font-size: 16px;
+  color: #2c3e50;
+  margin-bottom: 4px;
+}
+
+.employeePosition {
+  font-size: 14px;
+  color: #7f8c8d;
+  margin-bottom: 4px;
+}
+
+.employeeId {
+  font-size: 12px;
+  color: #95a5a6;
+}
+
+.statusSection {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-top: 12px;
+  border-top: 1px solid #e9ecef;
+}
+
+.statusBadge {
+  background: rgba($turquoise, 0.9);
+  color: white;
+  padding: 6px 12px;
+  border-radius: 6px;
+  font-size: 12px;
+  font-weight: 600;
+
+  &.away {
+    background: rgba($purple, 0.5);
+  }
+}
+
+.actionButton {
+  background: rgba($purple, 0.9);
+  color: white;
+  border: none;
+  padding: 6px 12px;
+  border-radius: 6px;
+  font-size: 12px;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+
+
+
+
+.leaveButton.active {
+  background: $purple;
+  box-shadow: 0 4px 12px rgba($purple, 0.4);
+}
+
+// Стили для форм
+.form {
+  margin-top: 20px;
+  padding: 20px;
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 12px;
+  backdrop-filter: blur(10px);
+}
+
+.formGroup {
+  margin-bottom: 16px;
+  
+  label {
+    display: block;
+    margin-bottom: 8px;
+    font-weight: 600;
+    color: white;
+  }
+  
+  input, select {
+    width: 100%;
+    padding: 12px 16px;
+    border: none;
+    border-radius: 8px;
+    font-size: 16px;
+    background: white;
+    box-sizing: border-box; 
+    &:focus {
+      outline: none;
+      box-shadow: 0 0 0 2px rgba(255, 255, 255, 0.5);
+    }
+  }
+}
+
+.select {
+  cursor: pointer;
+}
+
+.submitButton {
+  background: rgba(255, 255, 255, 0.9);
+  color: $purple-blue;
+  border: none;
+  padding: 12px 24px;
+  border-radius: 8px;
+  font-size: 16px;
+  font-weight: 600;
+  cursor: pointer;
+  width: 100%;
+  transition: all 0.3s ease;
+  
+  &:hover {
+    background: white;
+    transform: translateY(-2px);
+  }
+}

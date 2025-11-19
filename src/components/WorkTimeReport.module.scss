@@ -1,0 +1,499 @@
+.report {
+  padding: 20px;
+  max-width: 1400px;
+  margin: 0 auto;
+}
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 30px;
+  flex-wrap: wrap;
+  gap: 20px;
+
+  h1 {
+    color: #2c3e50;
+    margin: 0;
+  }
+}
+
+.controls {
+  display: flex;
+  gap: 20px;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+.periodSelector {
+  display: flex;
+  background: #f8f9fa;
+  border-radius: 8px;
+  padding: 4px;
+}
+
+.periodButton {
+  padding: 8px 16px;
+  border: none;
+  background: none;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 14px;
+  transition: all 0.2s;
+
+  &.active {
+    background: white;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    font-weight: 600;
+    color: #3498db;
+  }
+
+  &:hover:not(.active) {
+    background: #e9ecef;
+  }
+}
+
+.dateInputs {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.dateInput {
+  padding: 8px 12px;
+  border: 1px solid #ddd;
+  border-radius: 6px;
+  font-size: 14px;
+}
+
+.dateSeparator {
+  color: #7f8c8d;
+  font-weight: 600;
+}
+
+.exportButton,
+.refreshButton {
+  display: flex;
+  gap: 10px;
+  background: #3498db;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 8px;
+  cursor: pointer;
+  font-size: 14px;
+  transition: background-color 0.2s;
+
+  &:hover {
+    background: #2980b9;
+  }
+}
+
+.refreshButton {
+  background: #27ae60;
+
+  &:hover {
+    background: #219a52;
+  }
+}
+
+.periodInfo {
+  background: white;
+  padding: 20px;
+  border-radius: 12px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+  margin-bottom: 20px;
+
+  h2 {
+    margin: 0 0 10px 0;
+    color: #2c3e50;
+  }
+}
+
+.periodStats {
+  display: flex;
+  gap: 20px;
+  color: #7f8c8d;
+  font-size: 14px;
+
+  strong {
+    color: #2c3e50;
+  }
+}
+
+.stats {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 15px;
+  margin-bottom: 30px;
+}
+
+.statCard {
+  background: white;
+  padding: 20px;
+  border-radius: 12px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+  text-align: center;
+}
+
+.statNumber {
+  display: block;
+  font-size: 28px;
+  font-weight: bold;
+  color: #2c3e50;
+  margin-bottom: 5px;
+}
+
+.statLabel {
+  color: #7f8c8d;
+  font-size: 14px;
+}
+
+.tableContainer {
+  background: white;
+  border-radius: 12px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+  overflow: hidden;
+}
+
+.reportTable {
+  width: 100%;
+  border-collapse: collapse;
+
+  th {
+    background: #34495e;
+    color: white;
+    padding: 15px;
+    text-align: left;
+    font-weight: 600;
+    border-bottom: 2px solid #2c3e50;
+  }
+
+  td {
+    padding: 15px;
+    border-bottom: 1px solid #ecf0f1;
+  }
+}
+
+.tableRow {
+  transition: background-color 0.2s;
+
+  &:hover {
+    background: #f8f9fa;
+  }
+}
+
+.detailsRow {
+  background: #f8f9fa;
+
+  td {
+    border-bottom: 2px solid #dee2e6;
+  }
+}
+
+.employeeCell {
+  .employeeName {
+    font-weight: 600;
+    color: #2c3e50;
+    margin-bottom: 4px;
+  }
+
+  .employeeDetails {
+    font-size: 12px;
+    color: #7f8c8d;
+  }
+
+  .defaultSchedule {
+    font-size: 11px;
+    color: #e67e22;
+    margin-left: 8px;
+  }
+}
+
+.daysInfo {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  font-weight: 600;
+}
+
+.workDays {
+  color: #27ae60;
+}
+
+.totalDays {
+  color: #7f8c8d;
+  font-size: 12px;
+}
+
+.daysSeparator {
+  color: #bdc3c7;
+}
+
+.absentDays {
+  font-size: 11px;
+  color: #e74c3c;
+  margin-top: 4px;
+}
+
+.timeValue {
+  font-weight: 600;
+  color: #2c3e50;
+}
+
+.timeDetails {
+  font-size: 11px;
+  color: #7f8c8d;
+  margin-top: 2px;
+}
+
+.overtime {
+  color: #e67e22;
+  font-weight: 600;
+  font-size: 14px;
+}
+
+.noOvertime,
+.noViolations {
+  color: #bdc3c7;
+  font-style: italic;
+}
+
+.violationInfo {
+  .lateTime {
+    color: #e74c3c;
+    font-weight: 600;
+    font-size: 14px;
+  }
+
+  .lateCount {
+    font-size: 11px;
+    color: #7f8c8d;
+    margin-top: 2px;
+  }
+}
+
+.deviation {
+  font-weight: 600;
+  font-size: 14px;
+
+  &.normal {
+    color: #27ae60;
+  }
+
+  &.overtime {
+    color: #e67e22;
+  }
+
+  &.undertime {
+    color: #e74c3c;
+  }
+
+  &.critical {
+    color: #c0392b;
+    font-weight: bold;
+  }
+}
+
+.deviationPercent {
+  font-size: 11px;
+  font-weight: normal;
+  margin-top: 2px;
+}
+
+.status {
+  padding: 6px 12px;
+  border-radius: 20px;
+  font-size: 12px;
+  font-weight: 600;
+  color: white;
+
+  &.normal {
+    background: #27ae60;
+  }
+
+  &.overtime {
+    background: #e67e22;
+  }
+
+  &.undertime {
+    background: #e74c3c;
+  }
+
+  &.critical {
+    background: #c0392b;
+  }
+}
+
+.detailsButton {
+  background-color: white;
+  border: none;
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  cursor: pointer;
+  
+  
+  > svg {
+    width: 20px;
+    height: 20px;
+  }
+ 
+}
+
+.employeeDetailsPanel {
+  padding: 20px;
+  background: white;
+  border-radius: 8px;
+  margin: 10px 0;
+
+  h4 {
+    margin: 0 0 15px 0;
+    color: #2c3e50;
+  }
+}
+
+.dailyDetails {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: 10px;
+}
+
+.dayDetail {
+  background: #f8f9fa;
+  padding: 12px;
+  border-radius: 6px;
+  border-left: 4px solid #3498db;
+}
+
+.dayHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 8px;
+}
+
+.dayDate {
+  font-weight: 600;
+  color: #2c3e50;
+  font-size: 14px;
+}
+
+.dayStatus {
+  padding: 3px 8px;
+  border-radius: 12px;
+  font-size: 10px;
+  font-weight: 600;
+  color: white;
+
+  &.absent {
+    background: #e74c3c;
+  }
+
+  &.no_work {
+    background: #95a5a6;
+  }
+
+  &.overtime {
+    background: #e67e22;
+  }
+
+  &.normal {
+    background: #27ae60;
+  }
+
+  &.partial {
+    background: #3498db;
+  }
+
+  &.short {
+    background: #9b59b6;
+  }
+}
+
+.dayStats {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  font-size: 12px;
+  color: #7f8c8d;
+}
+
+.dayLate {
+  color: #e74c3c;
+}
+
+.dayEarly {
+  color: #e67e22;
+}
+
+.loading {
+  text-align: center;
+  padding: 40px;
+  font-size: 18px;
+  color: #3498db;
+}
+
+.error {
+  text-align: center;
+  padding: 40px;
+  color: #e74c3c;
+  font-size: 18px;
+}
+
+.noData {
+  text-align: center;
+  padding: 40px;
+  color: #7f8c8d;
+  font-style: italic;
+  background: white;
+  border-radius: 12px;
+  margin-top: 20px;
+}
+
+// Адаптивность
+@media (max-width: 1024px) {
+  .header {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .controls {
+    justify-content: center;
+  }
+
+  .dailyDetails {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 768px) {
+  .report {
+    padding: 10px;
+  }
+
+  .controls {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .periodSelector {
+    justify-content: center;
+  }
+
+  .dateInputs {
+    justify-content: center;
+  }
+
+  .stats {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .tableContainer {
+    overflow-x: auto;
+  }
+
+  .reportTable {
+    min-width: 1000px;
+  }
+}

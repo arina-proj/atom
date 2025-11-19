@@ -1,0 +1,383 @@
+@import '../../assets/variables';
+
+.profile {
+  margin: 0 auto;
+  padding: 20px;
+}
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 30px;
+  padding-bottom: 20px;
+  border-bottom: 1px solid #e9ecef;
+
+  h1 {
+    margin: 0;
+    color: rgba($black, 0.8);
+    font-size: 28px;
+  }
+}
+
+.backButton {
+  background: #6c757d;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 8px;
+  cursor: pointer;
+  font-size: 14px;
+  transition: background-color 0.2s;
+
+  &:hover {
+    background: #5a6268;
+  }
+}
+
+.deleteButton {
+  background: #e74c3c;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 8px;
+  cursor: pointer;
+  font-size: 14px;
+  transition: background-color 0.2s;
+
+  &:hover {
+    background: #c0392b;
+  }
+}
+
+.modalOverlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba($black, 0.5);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+}
+
+.modal {
+  background: white;
+  padding: 30px;
+  border-radius: 16px;
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.3);
+  max-width: 500px;
+  width: 90%;
+
+  h3 {
+    margin: 0 0 15px 0;
+    color: #2c3e50;
+  }
+
+  p {
+    margin: 0 0 20px 0;
+    color: #7f8c8d;
+    line-height: 1.5;
+  }
+}
+
+.passwordInput {
+  margin: 20px 0;
+
+  .passwordField {
+    width: 100%;
+    padding: 12px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    font-size: 16px;
+    box-sizing: border-box;
+
+    &:focus {
+      outline: none;
+      border-color: #3498db;
+    }
+  }
+}
+
+.employeeInfo {
+  background: #f8f9fa;
+  padding: 15px;
+  border-radius: 8px;
+  margin: 15px 0;
+
+  p {
+    margin: 8px 0;
+    color: #2c3e50;
+  }
+
+  .warning {
+    color: #e74c3c !important;
+    font-weight: 600;
+    margin-top: 15px !important;
+  }
+}
+
+.modalActions {
+  display: flex;
+  gap: 10px;
+  justify-content: flex-end;
+  margin-top: 25px;
+}
+
+.confirmButton {
+  background: #3498db;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 8px;
+  cursor: pointer;
+  font-size: 14px;
+
+  &:hover {
+    background: #2980b9;
+  }
+}
+
+.deleteConfirmButton {
+  background: #e74c3c;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 8px;
+  cursor: pointer;
+  font-size: 14px;
+
+  &:hover {
+    background: #c0392b;
+  }
+}
+
+.cancelButton {
+  background: #95a5a6;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 8px;
+  cursor: pointer;
+  font-size: 14px;
+
+  &:hover {
+    background: #7f8c8d;
+  }
+}
+
+.profileCard {
+  background: white;
+  border-radius: 16px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+  padding: 30px;
+  margin-bottom: 30px;
+  max-width: 60%;
+  margin-left: auto; // ← добавляем
+  margin-right: auto;
+}
+
+.details {
+  display: flex;
+  text-align: center;
+  flex-direction: column;
+  width: 100%;
+  box-sizing: border-box;
+  h2 {
+    margin: 0 0 10px 0;
+    color: #2c3e50;
+    font-size: 24px;
+  }
+}
+
+.meta {
+  display: flex;
+  text-align: center;
+  flex-direction: column;
+  gap: 15px;
+  margin-bottom: 20px;
+
+  .position,
+  .department {
+    background: #f8f9fa;
+
+    padding: 6px 12px;
+    border-radius: 20px;
+    font-size: 14px;
+    color: #7f8c8d;
+  }
+}
+
+.stats {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.stat {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  display: flex;
+  text-align: center;
+  justify-content: center;
+}
+
+.statLabel {
+  font-weight: 600;
+  color: #2c3e50;
+  min-width: 100px;
+}
+
+.statValue {
+  color: #7f8c8d;
+}
+
+.statusBadge {
+  color: white;
+  padding: 4px 12px;
+  border-radius: 12px;
+  font-size: 12px;
+  font-weight: 600;
+}
+
+.attendanceSection {
+  background: white;
+  border-radius: 16px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+  padding: 25px;
+
+  h3 {
+    margin: 0 0 20px 0;
+    color: #2c3e50;
+  }
+}
+
+.noData {
+  text-align: center;
+  color: #7f8c8d;
+  font-style: italic;
+}
+
+.attendanceList {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.attendanceItem {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 12px;
+  background: #f8f9fa;
+  border-radius: 8px;
+}
+
+.attendanceType {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.arrival {
+  color: #27ae60;
+  font-weight: 600;
+}
+
+.departure {
+  color: #e74c3c;
+  font-weight: 600;
+}
+
+.reason {
+  color: #7f8c8d;
+  font-size: 14px;
+}
+
+.attendanceTime {
+  color: #7f8c8d;
+  font-size: 14px;
+}
+
+.loading,
+.error {
+  text-align: center;
+  padding: 40px;
+  font-size: 18px;
+  color: #7f8c8d;
+}
+
+.error {
+  color: #e74c3c;
+}
+
+.intervalsSection {
+  background: white;
+  border-radius: 16px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+  padding: 25px;
+  margin-top: 20px;
+  width: 100%;
+  box-sizing: border-box;
+  h3 {
+    margin: 0 0 20px 0;
+    color: #2c3e50;
+  }
+}
+
+.currentInterval {
+  background: #e8f5e8;
+  padding: 15px;
+  border-radius: 8px;
+  margin-bottom: 20px;
+
+  h4 {
+    margin: 0 0 10px 0;
+    color: #27ae60;
+  }
+}
+
+.intervalInfo {
+  display: flex;
+  justify-content: space-between;
+  font-size: 14px;
+}
+
+.intervalsList {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.intervalItem {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 12px;
+  background: #f8f9fa;
+  border-radius: 8px;
+}
+
+.intervalTime {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  font-size: 14px;
+}
+
+.intervalDuration {
+  text-align: right;
+
+  strong {
+    color: #2c3e50;
+  }
+
+  span {
+    color: #7f8c8d;
+    font-size: 12px;
+    display: block;
+  }
+}

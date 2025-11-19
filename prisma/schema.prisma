@@ -1,0 +1,88 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+model Employee {
+  id           Int          @id @default(autoincrement())
+  fullName     String
+  position     String
+  department   String
+  hireDate     DateTime
+  status       String
+  createdAt    DateTime     @default(now())
+  updatedAt    DateTime     @updatedAt
+  attendances  Attendance[]
+  accessLogs   AccessLog[]
+  schedules    Schedule[]
+  cancelledAttendances CancelledAttendance[]
+
+  @@map("employees")
+}
+
+model Attendance {
+  id                  Int          @id @default(autoincrement())
+  employeeId          Int
+  employee            Employee     @relation(fields: [employeeId], references: [id], onDelete: Cascade)
+  type                String       // "приход", "уход"
+  reason              String?      // Причина ухода
+  timestamp           DateTime     @default(now())
+  pairedAttendanceId  Int?         // ID связанной записи (приход↔уход)
+  pairedAttendance    Attendance?  @relation("AttendancePair", fields: [pairedAttendanceId], references: [id])
+  relatedAttendances  Attendance[] @relation("AttendancePair") // Обратная связь
+  isLate              Boolean?     @default(false) // Опоздание
+  isEarlyLeave        Boolean?     @default(false) // Ранний уход
+  isReentry           Boolean?     @default(false) // Повторный вход/выход
+  isManual            Boolean?     @default(false) // Ручная запись
+  correctedBy         String?      // Кто внес корректировку
+  correctionReason    String?      // Причина корректировки
+  originalTimestamp   DateTime?    // Оригинальное время записи
+  notes               String?      // Дополнительные заметки
+  
+  @@map("attendances")
+}
+
+model AccessLog {
+  id          Int      @id @default(autoincrement())
+  employeeId  Int?
+  employee    Employee? @relation(fields: [employeeId], references: [id], onDelete: Cascade)
+  type        String   // "успех", "ошибка", "корректировка", "аннулирование"
+  action      String   // "приход", "уход"
+  reason      String?  // Причина ошибки
+  details     String?  // Дополнительные детали
+  timestamp   DateTime @default(now())
+  
+  @@map("access_logs")
+}
+
+model Schedule {
+  id          Int      @id @default(autoincrement())
+  employeeId  Int
+  employee    Employee @relation(fields: [employeeId], references: [id], onDelete: Cascade)
+  workStart   String   // "09:00" - время начала работы
+  workEnd     String   // "18:00" - время окончания работы
+  lunchStart  String   // "13:00" - начало обеда
+  lunchEnd    String   // "14:00" - конец обеда
+  
+  @@unique([employeeId])
+  @@map("schedules")
+}
+
+model CancelledAttendance {
+  id               Int      @id @default(autoincrement())
+  originalId       Int      // ID оригинальной записи
+  employeeId       Int
+  employee         Employee @relation(fields: [employeeId], references: [id], onDelete: Cascade)
+  type             String   // "приход" или "уход"
+  originalTimestamp DateTime // Оригинальное время записи
+  reason           String   // Причина аннулирования
+  cancelledBy      String   // Кто аннулировал
+  cancelledAt      DateTime @default(now())
+  originalData     String   // JSON с оригинальными данными
+  
+  @@map("cancelled_attendance")
+}

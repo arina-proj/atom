@@ -1,0 +1,469 @@
+@import '../assets/variables';
+
+.report {
+  padding: 20px;
+  max-width: 1400px;
+  margin: 0 auto;
+}
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 30px;
+  flex-wrap: wrap;
+  gap: 20px;
+
+  h1 {
+    color: #2c3e50;
+    margin: 0;
+  }
+}
+
+.controls {
+  display: flex;
+  gap: 20px;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+.dateInputs {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.dateInput {
+  padding: 8px 12px;
+  border: 1px solid #ddd;
+  border-radius: 6px;
+  font-size: 14px;
+}
+
+.dateSeparator {
+  color: #7f8c8d;
+  font-weight: 600;
+}
+
+.filters {
+  display: flex;
+  gap: 10px;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+.filter {
+  padding: 8px 35px 8px 12px;
+  border: 1px solid #ddd;
+  border-radius: 6px;
+  font-size: 14px;
+  background: white;
+  cursor: pointer;
+  appearance: none;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' viewBox='0 0 24 24' fill='none' stroke='%236c757d' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='m6 9 6 6 6-6'/%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: right 8px center;
+  background-size: 16px;
+}
+
+.exportButton,
+.refreshButton {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  background: #3498db;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 8px;
+  cursor: pointer;
+  font-size: 14px;
+  transition: background-color 0.2s;
+
+  &:hover {
+    background: #2980b9;
+  }
+}
+
+.refreshButton {
+  background: #27ae60;
+  
+  &:hover {
+    background: #219a52;
+  }
+}
+
+.periodInfo {
+  background: white;
+  padding: 20px;
+  border-radius: 12px;
+  box-shadow: 0 2px 10px rgba($black, 0.1);
+  margin-bottom: 20px;
+
+  h2 {
+    margin: 0 0 10px 0;
+    color: #2c3e50;
+  }
+}
+
+.activeFilters {
+  display: flex;
+  gap: 20px;
+  color: #7f8c8d;
+  font-size: 14px;
+
+  strong {
+    color: #2c3e50;
+  }
+}
+
+.stats {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 15px;
+  margin-bottom: 30px;
+}
+
+.statCard {
+  background: white;
+  padding: 20px;
+  border-radius: 12px;
+  box-shadow: 0 2px 10px rgba($black, 0.1);
+  text-align: center;
+}
+
+.statNumber {
+  display: block;
+  font-size: 28px;
+  font-weight: bold;
+  color: #2c3e50;
+  margin-bottom: 5px;
+}
+
+.statLabel {
+  color: #7f8c8d;
+  font-size: 14px;
+}
+
+.violationTypes {
+  background: white;
+  padding: 25px;
+  border-radius: 12px;
+  box-shadow: 0 2px 10px rgba($black, 0.1);
+  margin-bottom: 30px;
+
+  h3 {
+    margin: 0 0 20px 0;
+    color: #2c3e50;
+  }
+}
+
+.typesGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 20px;
+}
+
+.typeItem {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 20px;
+  background: #f8f9fa;
+  border-radius: 8px;
+  text-align: center;
+}
+
+.typeIcon {
+  font-size: 32px;
+  margin-bottom: 10px;
+}
+
+.typeCount {
+  font-size: 24px;
+  font-weight: bold;
+  color: #2c3e50;
+  margin-bottom: 5px;
+}
+
+.typeLabel {
+  color: #7f8c8d;
+  font-size: 14px;
+}
+
+.tableContainer {
+  background: white;
+  border-radius: 12px;
+  box-shadow: 0 4px 20px rgba($black, 0.1);
+  overflow: hidden;
+}
+
+.reportTable {
+  width: 100%;
+  border-collapse: collapse;
+  
+  th {
+    background: #34495e;
+    color: white;
+    padding: 15px;
+    text-align: left;
+    font-weight: 600;
+    border-bottom: 2px solid #2c3e50;
+  }
+  
+  td {
+    padding: 15px;
+    border-bottom: 1px solid #ecf0f1;
+  }
+}
+
+.tableRow {
+  transition: background-color 0.2s;
+  
+  &:hover {
+    background: #f8f9fa;
+  }
+}
+
+.detailsRow {
+  background: #f8f9fa;
+  
+  td {
+    border-bottom: 2px solid #dee2e6;
+  }
+}
+
+.employeeCell {
+  .employeeName {
+    font-weight: 600;
+    color: #2c3e50;
+    margin-bottom: 4px;
+  }
+  
+  .employeePosition {
+    font-size: 12px;
+    color: #7f8c8d;
+  }
+}
+
+.department {
+  background: #e3f2fd;
+  color: #1976d2;
+  padding: 4px 8px;
+  border-radius: 12px;
+  font-size: 12px;
+  font-weight: 500;
+}
+
+.violationsCount {
+  font-size: 18px;
+  font-weight: bold;
+  color: #e74c3c;
+}
+
+.penaltyPoints {
+  font-size: 16px;
+  font-weight: 600;
+  color: #e67e22;
+}
+
+.violationDistribution {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.distributionItem {
+  background: #f8f9fa;
+  padding: 4px 8px;
+  border-radius: 6px;
+  font-size: 12px;
+  border: 1px solid #e9ecef;
+}
+
+.severityBadge {
+  padding: 4px 8px;
+  border-radius: 12px;
+  font-size: 11px;
+  font-weight: 600;
+  color: white;
+  
+  &.lowSeverity {
+    background: #27ae60;
+  }
+  
+  &.mediumSeverity {
+    background: #f39c12;
+  }
+  
+  &.highSeverity {
+    background: #e74c3c;
+  }
+}
+
+.detailsButton {
+  background: #3498db;
+  color: white;
+  border: none;
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  cursor: pointer;
+  font-size: 12px;
+  transition: background-color 0.2s;
+
+  &:hover {
+    background: #2980b9;
+  }
+}
+
+.employeeDetailsPanel {
+  padding: 20px;
+  background: white;
+  border-radius: 8px;
+  margin: 10px 0;
+  
+  h4 {
+    margin: 0 0 15px 0;
+    color: #2c3e50;
+  }
+}
+
+.dailyViolations {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.dayViolations {
+  background: #f8f9fa;
+  padding: 15px;
+  border-radius: 8px;
+  border-left: 4px solid #e74c3c;
+}
+
+.dayHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 10px;
+  padding-bottom: 8px;
+  border-bottom: 1px solid #dee2e6;
+}
+
+.violationsList {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.violationItem {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 8px;
+  background: white;
+  border-radius: 6px;
+  border: 1px solid #e9ecef;
+}
+
+.violationIcon {
+  font-size: 16px;
+}
+
+.violationDescription {
+  flex: 1;
+  font-size: 14px;
+  color: #2c3e50;
+}
+
+.violationTime {
+  font-size: 12px;
+  color: #7f8c8d;
+  background: #f8f9fa;
+  padding: 2px 6px;
+  border-radius: 4px;
+}
+
+.loading {
+  text-align: center;
+  padding: 40px;
+  font-size: 18px;
+  color: #3498db;
+}
+
+.error {
+  text-align: center;
+  padding: 40px;
+  color: #e74c3c;
+  font-size: 18px;
+}
+
+.noData {
+  text-align: center;
+  padding: 60px 40px;
+  color: #27ae60;
+  font-size: 18px;
+  background: white;
+  border-radius: 12px;
+  margin-top: 20px;
+  border: 2px dashed #27ae60;
+}
+
+// Адаптивность
+@media (max-width: 1024px) {
+  .header {
+    flex-direction: column;
+    align-items: stretch;
+  }
+  
+  .controls {
+    justify-content: center;
+  }
+  
+  .filters {
+    justify-content: center;
+  }
+}
+
+@media (max-width: 768px) {
+  .report {
+    padding: 10px;
+  }
+  
+  .controls {
+    flex-direction: column;
+    align-items: stretch;
+  }
+  
+  .filters {
+    flex-direction: column;
+  }
+  
+  .filter {
+    width: 100%;
+  }
+  
+  .stats {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  
+  .typesGrid {
+    grid-template-columns: 1fr;
+  }
+  
+  .tableContainer {
+    overflow-x: auto;
+  }
+  
+  .reportTable {
+    min-width: 1000px;
+  }
+  
+  .violationItem {
+    flex-wrap: wrap;
+  }
+}
