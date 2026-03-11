@@ -1,0 +1,6 @@
+services:
+  - type: web
+    name: atom-backend
+    env: node
+    buildCommand: npm install && npx prisma generate
+    startCommand: npm start
