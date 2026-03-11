@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import { useNavigate, useParams } from "react-router-dom";
 import { useAuth } from "../../contexts/AuthContext";
 import styles from "./Profile.module.scss";
+import API_URL from "../../config/api";
 
 const Profile = () => {
   const { id } = useParams();
@@ -29,14 +30,14 @@ const Profile = () => {
     try {
       // Получаем данные сотрудника
       const employeeResponse = await fetch(
-        `http://localhost:3001/api/profile/${id}`
+        `${API_URL}/api/profile/${id}`
       );
       const employeeData = await employeeResponse.json();
       setEmployee(employeeData);
 
       // Получаем историю посещений
       const attendanceResponse = await fetch(
-        `http://localhost:3001/api/employees/${id}/attendance`
+        `${API_URL}/api/employees/${id}/attendance`
       );
       const attendanceData = await attendanceResponse.json();
       setAttendanceHistory(attendanceData);
@@ -54,7 +55,7 @@ const Profile = () => {
   const fetchPresenceIntervals = async () => {
     try {
       const response = await fetch(
-        `http://localhost:3001/api/employees/${id}/presence-intervals`
+        `${API_URL}/api/employees/${id}/presence-intervals`
       );
       const data = await response.json();
       setPresenceIntervals(data);
@@ -66,7 +67,7 @@ const Profile = () => {
   const fetchCurrentInterval = async () => {
     try {
       const response = await fetch(
-        `http://localhost:3001/api/employees/${id}/current-interval`
+        `${API_URL}/api/employees/${id}/current-interval`
       );
       const data = await response.json();
       setCurrentInterval(data);
@@ -107,7 +108,7 @@ const Profile = () => {
 
   const confirmDelete = async () => {
     try {
-      const response = await fetch(`http://localhost:3001/api/employees/${id}`, {
+      const response = await fetch(`${API_URL}/api/employees/${id}`, {
         method: "DELETE",
       });
 

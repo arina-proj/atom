@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { useParams, useNavigate } from 'react-router-dom';
 import { useAuth } from '../../contexts/AuthContext';
 import styles from './Violations.module.scss';
+import API_URL from '../../config/api';
 
 const Violations = () => {
   const { id } = useParams();
@@ -22,7 +23,7 @@ const Violations = () => {
 
   const fetchViolations = async () => {
     try {
-      const response = await fetch(`http://localhost:3001/api/employees/${id}/violations`);
+      const response = await fetch(`${API_URL}/api/employees/${id}/violations`);
       const data = await response.json();
       setViolations(data);
     } catch (error) {
@@ -34,7 +35,7 @@ const Violations = () => {
 
   const fetchStats = async () => {
     try {
-      const response = await fetch(`http://localhost:3001/api/employees/${id}/violations-stats`);
+      const response = await fetch(`${API_URL}/api/employees/${id}/violations-stats`);
       const data = await response.json();
       setStats(data);
     } catch (error) {

@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import { useAuth } from "../../contexts/AuthContext";
 import styles from "./AccessLogs.module.scss";
+import API_URL from "../../config/api";
 
 const AccessLogs = () => {
   const [logs, setLogs] = useState([]);
@@ -20,7 +21,7 @@ const AccessLogs = () => {
   const fetchLogs = async () => {
     try {
       const response = await fetch(
-        "http://localhost:3001/api/access-logs?limit=100"
+        `${API_URL}/api/access-logs?limit=100`
       );
       const data = await response.json();
       setLogs(data);

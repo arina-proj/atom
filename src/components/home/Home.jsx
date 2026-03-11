@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import useOnClickOutside from "../../hooks/useOnClickOutside";
 import styles from "./Home.module.scss";
+import API_URL from "../../config/api";
 
 const Home = () => {
   const [activeForm, setActiveForm] = useState(null);
@@ -19,7 +20,7 @@ const Home = () => {
   // Загрузка сотрудников из базы данных
   const fetchEmployees = async () => {
     try {
-      const response = await fetch("http://localhost:3001/api/employees");
+      const response = await fetch(`${API_URL}/api/employees`);
       const data = await response.json();
       setEmployees(data);
     } catch (error) {
@@ -68,7 +69,7 @@ const Home = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      const response = await fetch("http://localhost:3001/api/attendance", {
+      const response = await fetch(`${API_URL}/api/attendance`, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({

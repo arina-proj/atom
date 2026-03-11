@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { useAuth } from '../contexts/AuthContext';
 import styles from './ViolationsReport.module.scss';
+import API_URL from '../config/api';
 
 const ViolationsReport = () => {
   const { isAuthenticated } = useAuth();
@@ -44,7 +45,7 @@ const ViolationsReport = () => {
       });
 
       const response = await fetch(
-        `http://localhost:3001/api/reports/violations?${params}`
+        `${API_URL}/api/reports/violations?${params}`
       );
       const data = await response.json();
       

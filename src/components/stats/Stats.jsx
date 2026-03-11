@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { useAuth } from '../../contexts/AuthContext';
 import styles from './Stats.module.scss';
+import API_URL from '../../config/api';
 
 const Stats = () => {
   const navigate = useNavigate();
@@ -54,7 +55,7 @@ const Stats = () => {
 
   const fetchEmployees = async () => {
     try {
-      const response = await fetch('http://localhost:3001/api/employees');
+      const response = await fetch(`${API_URL}/api/employees`);
       const data = await response.json();
       setEmployees(data);
     } catch (error) {
@@ -65,7 +66,7 @@ const Stats = () => {
   const fetchAttendanceData = async () => {
     try {
       setLoading(true);
-      let url = 'http://localhost:3001/api/attendance/stats';
+      let url = `${API_URL}/api/attendance/stats`;
       const params = new URLSearchParams();
       
       if (selectedEmployee) {
@@ -95,7 +96,7 @@ const Stats = () => {
   const fetchAttendanceRecords = async () => {
     try {
       setLoading(true);
-      let url = 'http://localhost:3001/api/attendance/records';
+      let url = `${API_URL}/api/attendance/records`;
       const params = new URLSearchParams();
       
       if (selectedEmployee) {
@@ -125,7 +126,7 @@ const Stats = () => {
   const fetchCancelledRecords = async () => {
     try {
       setLoading(true);
-      let url = 'http://localhost:3001/api/attendance/cancelled';
+      let url = `${API_URL}/api/attendance/cancelled`;
       const params = new URLSearchParams();
       
       if (selectedEmployee) {
@@ -159,7 +160,7 @@ const Stats = () => {
   const handleManualSubmit = async (e) => {
     e.preventDefault();
     try {
-      const response = await fetch('http://localhost:3001/api/attendance/manual', {
+      const response = await fetch(`${API_URL}/api/attendance/manual`, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
@@ -194,7 +195,7 @@ const Stats = () => {
 
   const handleEditRecord = async (recordId, newTimestamp, reason) => {
     try {
-      const response = await fetch(`http://localhost:3001/api/attendance/records/${recordId}`, {
+      const response = await fetch(`${API_URL}/api/attendance/records/${recordId}`, {
         method: 'PUT',
         headers: {
           'Content-Type': 'application/json',
@@ -229,7 +230,7 @@ const Stats = () => {
     }
 
     try {
-      const response = await fetch(`http://localhost:3001/api/attendance/records/${recordId}`, {
+      const response = await fetch(`${API_URL}/api/attendance/records/${recordId}`, {
         method: 'DELETE',
         headers: {
           'Content-Type': 'application/json',

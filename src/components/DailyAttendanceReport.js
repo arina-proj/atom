@@ -3,7 +3,7 @@ import { useAuth } from "../contexts/AuthContext";
 import styles from "./DailyAttendanceReport.module.scss";
 import { CiExport } from "react-icons/ci";
 import { MdKeyboardArrowDown } from "react-icons/md";
-
+import API_URL from "../config/api";
 const DailyAttendanceReport = () => {
   const { isAuthenticated } = useAuth();
   const [report, setReport] = useState(null);
@@ -23,7 +23,7 @@ const DailyAttendanceReport = () => {
     setLoading(true);
     try {
       const response = await fetch(
-        `http://localhost:3001/api/reports/daily-attendance?date=${selectedDate}`
+        `${API_URL}/api/reports/daily-attendance?date=${selectedDate}`
       );
       const data = await response.json();
 

@@ -3,6 +3,7 @@ import { useAuth } from "../contexts/AuthContext";
 import styles from "./WorkTimeReport.module.scss";
 import { CiExport } from "react-icons/ci";
 import { MdOutlineKeyboardDoubleArrowDown, MdKeyboardDoubleArrowUp} from "react-icons/md";
+import API_URL from "../config/api";
 
 const WorkTimeReport = () => {
   const { isAuthenticated } = useAuth();
@@ -62,7 +63,7 @@ const WorkTimeReport = () => {
     setLoading(true);
     try {
       const response = await fetch(
-        `http://localhost:3001/api/reports/work-time?startDate=${startDate}&endDate=${endDate}&periodType=${periodType}`
+        `${API_URL}/api/reports/work-time?startDate=${startDate}&endDate=${endDate}&periodType=${periodType}`
       );
       const data = await response.json();
 

@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import styles from './Registration.module.scss';
+import API_URL from '../../config/api';
 
 const Registration = () => {
   const navigate = useNavigate();
@@ -25,7 +26,7 @@ const Registration = () => {
     setLoading(true);
 
     try {
-      const response = await fetch('http://localhost:3001/api/employees', {
+      const response = await fetch(`${API_URL}/api/employees`, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
